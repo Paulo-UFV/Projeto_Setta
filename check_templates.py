@@ -1,6 +1,5 @@
 import os
 
-# Caminho completo para a pasta templates
 templates_path = os.path.join(os.path.dirname(__file__), 'templates')
 print("Caminho para a pasta 'templates':", templates_path)
 
