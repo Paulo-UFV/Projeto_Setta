@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Eficiência</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monitoramento de Eficiência</h1>
+        <p>Temperatura Atual: {{ temperature }} °C</p>
+        <p>Eficiência Atual: {{ efficiency }} %</p>
+        <p>Última Consulta: {{ last_update }}</p>
+        <h2>Gráfico de Temperatura e Eficiência</h2>
+        <img src="{{ plot_url }}" alt="Gráfico de Temperatura e Eficiência">
+    </div>
+</body>
+</html>
