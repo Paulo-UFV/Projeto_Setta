@@ -5,10 +5,10 @@ import plotly.graph_objs as go
 import psycopg2
 import pandas as pd
 
-# Configuração do Dash
+# Dash
 app = dash.Dash(__name__)
 
-# Função para obter dados do banco de dados
+# dados 
 def get_data():
     conn = psycopg2.connect(
         host="localhost",
@@ -24,14 +24,14 @@ def get_data():
     conn.close()
     return df
 
-# Função para calcular a previsão de eficiência
+# previsão de eficiência
 def calculate_efficiency_prediction(df):
     recent_data = df.tail(10)  # Pegue os últimos 10 registros
     efficiency_changes = recent_data["temperatura"].diff().fillna(0)  # Calcule a diferença entre temperaturas consecutivas
     prediction_sum = efficiency_changes[-8:].sum()  # Some as mudanças dos últimos 8 registros
     return prediction_sum
 
-# Layout do Dash
+# Dash
 app.layout = html.Div([
     html.H1("Dashboard de Monitoramento de Eficiência", style={'text-align': 'center'}),
     html.Div([
@@ -41,7 +41,7 @@ app.layout = html.Div([
     dcc.Interval(id='interval-component', interval=1*60000, n_intervals=0)
 ])
 
-# Callback para atualizar os gráficos
+# atualizar os gráficos
 @app.callback(
     [Output('gauge-efficiency', 'figure'),
      Output('gauge-temperature', 'figure')],
